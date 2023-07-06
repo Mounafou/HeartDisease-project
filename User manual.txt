@@ -1,0 +1,54 @@
+Heart Disease - ML based classifier
+
+Input Data Type from GUI:
+The selection are to be made from the drop-down menus. Although it is possible to leave them unprovided, it is strongly
+advised to fill in for better accuracy.
+
+Empty field for input from keyboards are all numerical. It can be integers or floating point numbers.
+
+Input Data Type from CSV file.
+
+It should contain parameters as floating point numbers or integers in the order of :
+'age', 'sex', 'cp', 'trestbps', 'chol', 'fbs', 'restecg', 'thalach', 'exang', 'oldpeak', 'slope', 'ca', 'thal'
+e.g: (40,1,2,140,289,0,0,172,0,0,0,0,0)
+
+The attributes are same as in the GUI input.
+Detailed attribute info:
+
+age: age in years
+sex: sex (1 = male; 0 = female)
+cp: chest pain type
+-- Value 1: typical angina
+-- Value 2: atypical angina
+-- Value 3: non-anginal pain
+-- Value 4: asymptomatic
+trestbps: resting blood pressure (in mm Hg on admission to the hospital)
+chol: serum cholestoral in mg/dl
+fbs: (fasting blood sugar > 120 mg/dl) (1 = true; 0 = false)
+restecg: resting electrocardiographic results
+-- Value 0: normal
+-- Value 1: having ST-T wave abnormality (T wave inversions and/or ST elevation or depression of > 0.05 mV)
+thalach: maximum heart rate achieved
+exang: exercise induced angina (1 = yes; 0 = no)
+oldpeak = ST depression induced by exercise relative to rest
+slope: the slope of the peak exercise ST segment
+-- Value 1: upsloping
+-- Value 2: flat
+-- Value 3: downsloping
+ca: number of major vessels (0-3) colored by flourosopy
+thal: 3 = normal; 6 = fixed defect; 7 = reversable defect
+(not to be input)num: diagnosis of heart disease (angiographic disease status)
+-- Value 0: < 50% diameter narrowing
+-- Value 1: > 50% diameter narrowing
+
+Additional/technical info:,
+"Heart Disease" dataset is taken from UCI Machine Learning Repository
+https://archive.ics.uci.edu/ml/datasets/heart+disease
+
+The data is converted into format accepted by sklearn. The main goal is creating a prediction algorithm based on the 13 attributes outlined by the dataset. The end result should have a GUI interface where the user can upload file or manually enter the attributes and the program will give its prediction whether the 4 diseases for which the data is labeled were predicted or not.
+
+User manual User is prompted by a GUI interface requesting to fill a patient's data. The GUI interface lists 10 categorical values and 4 continuous values. The 4 continuous values only work with positive numbers or no input values and warns the user with popup sign in case of incorrect input. The program is capable to run with missing inputs. Naturally all missing inputs reduce prediction reliability.
+
+Data handling The machine learning weights are calculated using sklearn logistic regression hyperparameter tuned to work on the data. The weights are saved and transferred to the main part of the program. The GUI interface loads the values selected by the user into a dictionary. Those values are filtered for incorrect user inputs. Converted to Pandas dataframe, on which the computer calculates the prediction based on the trained weights on the input data.
+
+Created by Mounaf Anar and Dani. Mounaf was primarily responsible for creating and selecting the best machine learning methods and preparing the data. Anar was primarily responsible for developing the GUI interface Dani was primarily responsible for interconnecting the 2 previous codes
